@@ -82,21 +82,14 @@ function pascalTriangle(row, col) {
 }
 pascalTriangle(5, 2); // 10
 
-function base10ToString(n) {
-    var binaryString = "";
-
-    function base10ToStringHelper(n) {
-        if (n < 2) {
-            binaryString += n;
-            return;
-        } else {
-            base10ToStringHelper(Math.floor(n / 2));
-            base10ToStringHelper(n % 2);
-        }
-    }
-    base10ToStringHelper(n);
-
-    return binaryString;
+function base10ToString(num, str = "") {
+  count++;
+  if (num === 0) {
+    return str;
+  }
+  if (num % 2 === 0) str = "0" + str;
+  else str = "1" + str;
+  return base10ToString(Math.floor(num / 2), str);
 }
 
 console.log(base10ToString(232)); // 11101000
